@@ -37,6 +37,9 @@ export default function Navbar() {
           <a href="/resume.pdf" className="hover:text-white transition">
             Resume
           </a>
+          <a href="#skills" className="hover:text-white transition">
+            Skills
+          </a>
         </div>
       </div>
     </nav>
