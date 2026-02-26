@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col justify-center items-center bg-black text-white text-center px-6">
       
       <p className="text-sm text-gray-500 mb-6 tracking-widest uppercase">
-        AI Engineer • Cloud Systems • Infrastructure
+        Data Engineer • Big Data • Apache Spark • AWS • ETL Pipelines • AI Engineer • Cloud Systems • Infrastructure
       </p>
 
       <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-4xl mb-8">
