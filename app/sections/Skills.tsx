@@ -51,7 +51,7 @@ export default function Skills() {
 
   return (
     <FadeIn>
-      <section id="skills" className="text-4xl md:text-5xl font-semibold tracking-tight py-28 bg-neutral-950 text-white px-6">
+      <section id="skills" className="py-28 bg-black text-white px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-16 text-center">
             Skills

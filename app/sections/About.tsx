@@ -4,7 +4,7 @@ export default function About() {
     <FadeIn>
     <section
       id="about"
-      className="text-4xl md:text-5xl font-semibold tracking-tight py-28 bg-neutral-950 text-white px-6"
+      className="text-4xl md:text-5xl font-semibold tracking-tight "
     >
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-10 tracking-tight">

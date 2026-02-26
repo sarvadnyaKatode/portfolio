@@ -27,7 +27,7 @@ export default function Navbar() {
           SK
         </span>
 
-        <div className="flex gap-8 text-sm text-gray-400">
+        <div className="hidden sm:flex gap-8 text-sm text-gray-400">
           <a href="#projects" className="hover:text-white transition">
             Projects
           </a>
