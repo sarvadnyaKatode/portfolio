@@ -1,32 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Code2, Briefcase, MapPin } from "lucide-react";
+import { Award, Code2, Briefcase, MapPin, GraduationCap } from "lucide-react";
 
-const milestones = [
+const education = [
   {
-    year: "2024",
-    title: "Data Engineering Intern",
-    company: "Tech Solutions Inc.",
-    desc: "Built scalable ETL pipelines & ML proof-of-concepts on AWS, reducing processing time by 40%.",
-    icon: <Briefcase className="w-4 h-4" />,
+    year: "2025 – Jan 2026",
+    title: "PG Diploma in Big Data Analytics (DBDA)",
+    institution: "CDAC – SM VITA, Mumbai",
+    score: "76.8%",
+    icon: <GraduationCap className="w-4 h-4" />,
     color: "primary",
   },
   {
-    year: "2024",
-    title: "CDAC DBDA Graduate",
-    company: "Centre for Advanced Computing",
-    desc: "Post-Graduate Diploma in Big Data Analytics — Hadoop, Spark, ML, Cloud architecture.",
-    icon: <Award className="w-4 h-4" />,
+    year: "2021 – 2025",
+    title: "Bachelor of Technology – IT",
+    institution: "St. Vincent Pallotti College of Engineering, Nagpur",
+    icon: <Code2 className="w-4 h-4" />,
     color: "secondary",
   },
   {
-    year: "2023",
-    title: "AI Systems Lead",
-    company: "Formula Bharat",
-    desc: "Led a team of 4 to build an intelligent telemetry ingestion & predictive performance pipeline.",
-    icon: <Code2 className="w-4 h-4" />,
+    year: "2021",
+    title: "HSC (Class 12th)",
+    institution: "Kamla Nehru College, Nagpur",
+    score: "91.20%",
+    icon: <Award className="w-4 h-4" />,
     color: "primary",
+  },
+  {
+    year: "2019",
+    title: "SSC (Class 10th)",
+    institution: "Tejswini Vidya Mandir, Nagpur",
+    score: "80.40%",
+    icon: <Award className="w-4 h-4" />,
+    color: "secondary",
   },
 ];
 
@@ -47,7 +54,7 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <p className="text-primary font-mono text-sm mb-3 tracking-widest uppercase">// who am I</p>
+          <p className="text-primary font-mono text-sm mb-3 tracking-widest uppercase">// professional overview</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Me</span>
           </h2>
@@ -89,10 +96,10 @@ export default function About() {
             {/* Quick stats */}
             <div className="grid grid-cols-2 gap-4 w-full">
               {[
-                { label: "ML Projects", value: "5+" },
-                { label: "Tech Stack", value: "15+" },
-                { label: "Data Processed", value: "1TB+" },
-                { label: "Location", value: <><MapPin className="w-3 h-3 inline" /> Mumbai</> },
+                { label: "Predictive Models", value: "4+" },
+                { label: "HSC Score", value: "91.2%" },
+                { label: "Data Mastery", value: "SQL/PY" },
+                { label: "Location", value: <><MapPin className="w-3 h-3 inline" /> Nagpur</> },
               ].map((stat, i) => (
                 <div key={i} className="glass p-3 rounded-xl border border-white/5 text-center">
                   <div className="text-lg font-bold text-primary font-mono">{stat.value}</div>
@@ -102,7 +109,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right: Story + Timeline (3/5 width) */}
+          {/* Right: Story + Education Timeline (3/5 width) */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -113,23 +120,22 @@ export default function About() {
             {/* Bio card */}
             <div className="glass p-8 rounded-2xl border border-white/5 hover:border-primary/20 transition-colors">
               <p className="text-text-main text-lg leading-relaxed mb-5">
-                I&apos;m an <span className="text-primary font-semibold">AI Engineer</span> and{" "}
-                <span className="text-secondary font-semibold">Data Enthusiast</span> obsessed with turning raw data into intelligent, production-ready systems.
+                Detail-oriented engineering graduate with strong foundations in <span className="text-primary font-semibold">Data Analytics, Python, SQL, and Big Data</span> technologies.
               </p>
               <p className="text-text-muted leading-relaxed">
-                Rather than just building models in notebooks, I engineer complete solutions — from robust ETL pipelines on AWS to optimizing inference engines at scale.
-                Whether it&apos;s predicting retail demand with Prophet or building semantic search with transformers, I live at the intersection of <em className="text-white not-italic">speed, scale, and intelligence</em>.
+                Backed by hands-on internship experience and a <span className="text-white font-medium">PG Diploma in Big Data Analytics (CDAC Mumbai)</span>. 
+                I specialize in data cleaning, EDA, predictive modeling, and insight generation, with a growing exposure to risk analytics and business-driven decision making.
               </p>
             </div>
 
-            {/* Timeline */}
+            {/* Education Timeline */}
             <div>
-              <p className="text-xs font-mono text-primary uppercase tracking-widest mb-6">// Journey Timeline</p>
+              <p className="text-xs font-mono text-primary uppercase tracking-widest mb-6">// Academic Journey</p>
               <div className="relative space-y-6">
                 {/* Vertical line */}
                 <div className="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-transparent" />
 
-                {milestones.map((m, i) => (
+                {education.map((edu, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, x: 20 }}
@@ -140,23 +146,25 @@ export default function About() {
                   >
                     {/* Circle */}
                     <div className={`relative z-10 w-10 h-10 shrink-0 rounded-full flex items-center justify-center border-2 ${
-                      m.color === "primary"
+                      edu.color === "primary"
                         ? "border-primary bg-primary/10 text-primary shadow-[0_0_15px_rgba(0,245,212,0.4)]"
                         : "border-secondary bg-secondary/10 text-secondary shadow-[0_0_15px_rgba(123,97,255,0.4)]"
                     }`}>
-                      {m.icon}
+                      {edu.icon}
                     </div>
 
                     {/* Content */}
                     <div className="glass p-4 rounded-xl border border-white/5 hover:border-primary/30 transition-colors flex-1">
                       <div className="flex items-start justify-between gap-2 mb-1">
                         <div>
-                          <h4 className="text-white font-bold">{m.title}</h4>
-                          <p className="text-primary text-sm font-medium">{m.company}</p>
+                          <h4 className="text-white font-bold text-sm md:text-base">{edu.title}</h4>
+                          <p className="text-primary text-xs md:text-sm font-medium">{edu.institution}</p>
                         </div>
-                        <span className="text-xs font-mono text-text-muted bg-white/5 px-2 py-1 rounded shrink-0">{m.year}</span>
+                        <span className="text-[10px] md:text-xs font-mono text-text-muted bg-white/5 px-2 py-1 rounded shrink-0">{edu.year}</span>
                       </div>
-                      <p className="text-text-muted text-sm leading-relaxed mt-2">{m.desc}</p>
+                      {edu.score && (
+                        <p className="text-text-muted text-xs mt-2">Achievement: <span className="text-secondary font-mono">{edu.score}</span></p>
+                      )}
                     </div>
                   </motion.div>
                 ))}

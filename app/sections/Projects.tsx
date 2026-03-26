@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowUpRight } from "lucide-react";
-import { useState } from "react";
 
 const GithubIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -18,45 +17,52 @@ const GithubIconLg = () => (
 
 const projects = [
   {
-    title: "AI Retail Supply Intelligence Platform",
-    emoji: "🛒",
-    impact: "Prevents stockouts & overstock for 100 SKUs across 10 major stores.",
-    problem: "Retail networks lose revenue to stockouts while over-ordering excess inventory with no intelligent forecasting system.",
-    solution: "Prophet-powered 7-day forecasting engine with dynamic safety stock and a real-time geospatial Streamlit dashboard.",
-    metric: "85–92% forecast accuracy",
-    tech: ["Python", "Prophet", "FastAPI", "Streamlit", "Docker"],
+    title: "Steam Gaming Analytics Platform",
+    emoji: "🎮",
+    impact: "Analyzes player sentiment & market trends for 239K games.",
+    problem: "Processing massive sets (1M+ reviews) required a scalable, cost-optimized cloud architecture.",
+    solution: "Built AWS S3 & Spark pipeline with Parquet optimization on Databricks/EMR for engagement KPIs.",
+    metric: "239K Games Analyzed",
+    tech: ["AWS S3", "Spark", "PySpark", "Databricks", "Power BI"],
     github: "https://github.com/sarvadnyaKatode",
-    live: "https://ai-retail-supply-intelligence-platform.streamlit.app/",
     color: "primary",
   },
   {
-    title: "SteamSAGE — Semantic Game Search",
-    emoji: "🎮",
-    impact: "Retrieves games by meaning, not keywords — live NLP deployment.",
-    problem: "Traditional game discovery relies solely on keyword matching, missing nuanced user intent.",
-    solution: "Engineered a transformer embedding pipeline bridging natural language queries to semantically similar Steam games, deployed via FastAPI.",
-    metric: "10k+ game embeddings",
-    tech: ["NLP", "HuggingFace", "FastAPI", "Embeddings", "Vercel"],
-    live: "https://steamsage.vercel.app/",
+    title: "Driver Drowsiness Detection System",
+    emoji: "🚗",
+    impact: "Real-time fatigue monitoring using CNN–LSTM architecture.",
+    problem: "Standard detection lacks temporal sequence modeling for accurate blink patterns.",
+    solution: "Developed integrated CNN-LSTM model with OpenCV for live video stream inference.",
+    metric: "89% Accuracy",
+    tech: ["Python", "TensorFlow", "Keras", "OpenCV", "Deep Learning"],
     github: "https://github.com/sarvadnyaKatode",
     color: "secondary",
   },
   {
-    title: "Driver Drowsiness Detection",
-    emoji: "🚗",
-    impact: "Real-time CV system to detect fatigue and prevent road accidents.",
-    problem: "Standard vehicles lack affordable real-time fatigue monitoring systems for drivers.",
-    solution: "Trained a CNN + LSTM architecture integrated with OpenCV for high-speed live webcam inference and alert triggers.",
-    metric: "< 200ms inference",
-    tech: ["Python", "TensorFlow", "OpenCV", "CNN", "LSTM"],
+    title: "Smart Demand Optimization System",
+    emoji: "🛒",
+    impact: "Reduced stockouts by 30% for hyperlocal stores.",
+    problem: "Hyperlocal retail lacks data-driven inventory forecasting, leading to excess or stockouts.",
+    solution: "Developed AI-powered demand forecasting using Python, SQL, and Apache Airflow pipelines.",
+    metric: "30% Reduction",
+    tech: ["Python", "SQL", "Airflow", "Power BI"],
     github: "https://github.com/sarvadnyaKatode",
     color: "primary",
+  },
+  {
+    title: "Apache Airflow ETL Project",
+    emoji: "☁️",
+    impact: "Automated real-time weather data ingestion using Docker.",
+    problem: "Manual data ingestion for Open-Meteo API was error-prone and non-scheduled.",
+    solution: "Modular Python DAGs in Airflow to pull and process weather data automatically.",
+    metric: "Real-time pipeline",
+    tech: ["Apache Airflow", "Docker", "Python", "API"],
+    github: "https://github.com/sarvadnyaKatode",
+    color: "secondary",
   },
 ];
 
 export default function Projects() {
-  const [expanded, setExpanded] = useState<number | null>(null);
-
   return (
     <section id="projects" className="py-28 relative overflow-hidden">
       {/* Backgrounds */}
@@ -82,7 +88,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Project cards */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((proj, i) => (
             <motion.div
               key={i}
@@ -90,14 +96,11 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className={`group glass rounded-2xl border overflow-hidden transition-all duration-500 cursor-pointer ${
-                expanded === i
-                  ? proj.color === "primary"
-                    ? "border-primary/60 shadow-[0_0_50px_rgba(0,245,212,0.2)]"
-                    : "border-secondary/60 shadow-[0_0_50px_rgba(123,97,255,0.2)]"
-                  : "border-white/5 hover:border-white/15 hover:-translate-y-1"
-              } ${i === 2 ? "lg:col-span-2 lg:max-w-2xl lg:mx-auto" : ""}`}
-              onClick={() => setExpanded(expanded === i ? null : i)}
+              className={`group glass rounded-2xl border overflow-hidden transition-all duration-500 border-white/5 hover:border-white/15 hover:-translate-y-1 ${
+                proj.color === "primary"
+                  ? "hover:shadow-[0_0_50px_rgba(0,245,212,0.1)]"
+                  : "hover:shadow-[0_0_50px_rgba(123,97,255,0.1)]"
+              }`}
             >
               <div className="p-7">
                 {/* Impact row */}
@@ -111,17 +114,10 @@ export default function Projects() {
                     </div>
                     <p className="text-text-muted text-sm leading-relaxed">{proj.impact}</p>
                   </div>
-                  <motion.div
-                    animate={{ rotate: expanded === i ? 45 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="text-text-muted mt-1 shrink-0"
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </motion.div>
                 </div>
 
                 {/* Metric badge */}
-                <div className={`inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-full border mb-4 ${
+                <div className={`inline-flex items-center gap-1.5 text-[10px] font-mono px-3 py-1.5 rounded-full border mb-4 ${
                   proj.color === "primary"
                     ? "border-primary/30 bg-primary/5 text-primary"
                     : "border-secondary/30 bg-secondary/5 text-secondary"
@@ -130,64 +126,37 @@ export default function Projects() {
                 </div>
 
                 {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
+                <div className="flex flex-wrap gap-1.5 mb-6">
                   {proj.tech.map((t, j) => (
-                    <span key={j} className="text-xs font-mono px-2 py-0.5 rounded bg-white/5 text-gray-400 border border-white/8">
+                    <span key={j} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-gray-400 border border-white/8">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                {/* Expandable content */}
-                <motion.div
-                  initial={false}
-                  animate={{ height: expanded === i ? "auto" : 0, opacity: expanded === i ? 1 : 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  <div className="pt-4 border-t border-white/5 space-y-4">
-                    <div className="p-4 rounded-xl bg-bg-deep/60 border border-white/5">
-                      <p className="text-xs font-mono text-secondary uppercase tracking-wider mb-2">🔍 The Problem</p>
-                      <p className="text-sm text-gray-300">{proj.problem}</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-bg-deep/60 border border-white/5">
-                      <p className="text-xs font-mono text-primary uppercase tracking-wider mb-2">⚙️ The Solution</p>
-                      <p className="text-sm text-gray-300">{proj.solution}</p>
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="flex gap-3 pt-2">
-                      {proj.live && (
-                        <a
-                          href={proj.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className={`flex-1 flex items-center justify-center gap-2 text-sm font-medium py-2.5 rounded-xl border transition-all ${
-                            proj.color === "primary"
-                              ? "bg-primary/10 text-primary border-primary/40 hover:bg-primary hover:text-bg-deep"
-                              : "bg-secondary/10 text-secondary border-secondary/40 hover:bg-secondary hover:text-white"
-                          }`}
-                        >
-                          <ExternalLink className="w-4 h-4" /> Live Demo
-                        </a>
-                      )}
-                      <a
-                        href={proj.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="flex-1 flex items-center justify-center gap-2 text-sm font-medium py-2.5 rounded-xl border border-white/10 text-gray-300 hover:border-white/30 hover:text-white transition-all"
-                      >
-                        <GithubIcon /> GitHub
-                      </a>
-                    </div>
+                {/* Always visible details */}
+                <div className="pt-4 border-t border-white/5 space-y-4">
+                  <div className="p-4 rounded-xl bg-bg-deep/60 border border-white/5">
+                    <p className="text-xs font-mono text-secondary uppercase tracking-wider mb-2">🔍 Challenge</p>
+                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed">{proj.problem}</p>
                   </div>
-                </motion.div>
+                  <div className="p-4 rounded-xl bg-bg-deep/60 border border-white/5">
+                    <p className="text-xs font-mono text-primary uppercase tracking-wider mb-2">⚙️ Solution</p>
+                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed">{proj.solution}</p>
+                  </div>
 
-                {!expanded && (
-                  <p className="text-xs text-text-muted mt-3 opacity-40">Click to expand →</p>
-                )}
+                  {/* Buttons */}
+                  <div className="flex gap-3 pt-2">
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 text-sm font-medium py-2.5 rounded-xl border border-white/10 text-gray-300 hover:border-white/30 hover:text-white transition-all"
+                    >
+                      <GithubIcon /> Review Code
+                    </a>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}

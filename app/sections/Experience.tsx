@@ -1,54 +1,57 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Award, MapPin, Calendar } from "lucide-react";
+import { Briefcase, Milestone, Award, MapPin, Calendar, Users, Cpu } from "lucide-react";
 
 const experiences = [
   {
-    title: "Data Engineering / AI Intern",
-    company: "Tech Solutions Inc.",
-    location: "Mumbai, India",
-    period: "Jun 2024 – Present",
+    title: "Data Scientist Intern",
+    company: "Affordable AI",
+    location: "Remote / Hybrid",
+    period: "Aug 2024 – Jan 2025",
     type: "work",
     highlights: [
-      "Built automated ETL pipeline reducing processing time by 40%",
-      "Developed ML proof-of-concepts for predictive analytics",
-      "Deployed scalable data architectures on AWS S3 + EC2",
+      "Developed data visualization dashboards to present analytical results to stakeholders.",
+      "Performed data cleaning, EDA, and analysis using Python, SQL, Pandas, NumPy.",
+      "Built basic ML models and visualizations to support business insights and decision-making.",
+      "Gained expertise in AI/ML concepts, data manipulation, and storytelling.",
     ],
-    tech: ["Apache Spark", "Python", "AWS", "Airflow"],
+    tech: ["Python", "SQL", "Pandas", "Matplotlib", "Scikit-Learn"],
   },
   {
-    title: "Post-Graduate Diploma — Big Data Analytics",
-    company: "CDAC (DBDA Program)",
-    location: "Mumbai, India",
-    period: "Sep 2023 – Mar 2024",
-    type: "education",
+    title: "Race Engineering Intern",
+    company: "Indian Motorsports Academy (IMA)",
+    location: "Indian F4 Championship",
+    period: "2025 – Present",
+    type: "work",
     highlights: [
-      "Specialized in Hadoop, Spark, Scala and Cloud architectures",
-      "Completed capstone project on real-time streaming analytics",
-      "Mentored junior batch in Data Science fundamentals",
+      "Selected as Top 30 Trackside Intern after a nationwide assessment.",
+      "Supported real-time data acquisition, telemetry analysis, and reporting in high-pressure environments.",
+      "Worked with structured datasets, system checks, and cross-functional coordination.",
+      "Ensuring data accuracy and timely execution during race events.",
     ],
-    tech: ["Hadoop", "Spark", "Scala", "ML", "Cloud"],
+    tech: ["Telemetry Analysis", "Structured Datasets", "Live Reporting"],
   },
   {
-    title: "AI Systems Lead",
-    company: "Formula Bharat Racing Team",
-    location: "India",
-    period: "2022 – 2023",
+    title: "Vehicle Integration Lead",
+    company: "Formula Ashwariders (Formula Student Team)",
+    location: "Nagpur, India",
+    period: "2023 – 2025",
     type: "achievement",
     highlights: [
-      "Led team of 4 engineers to build telemetry ingestion system",
-      "Designed intelligent sensor data pipeline for race performance",
-      "Achieved measurable lap time reduction via predictive modelling",
+      "Led real-time telemetry dashboard development and optimized vehicle subsystem performance.",
+      "Delivered strategic presentations leveraging expertise in Vehicle Dynamics and project management.",
+      "Integrated control electronics and data acquisition systems across multiple subsystems.",
+      "Applied analytical thinking and agile teamwork to deliver optimal race performance.",
     ],
-    tech: ["Python", "TensorFlow", "IoT Sensors", "Pandas"],
+    tech: ["Vehicle Dynamics", "Telemetry", "Git", "Project Management"],
   },
 ];
 
 const iconMap = {
   work: <Briefcase className="w-5 h-5" />,
-  education: <GraduationCap className="w-5 h-5" />,
-  achievement: <Award className="w-5 h-5" />,
+  education: <Milestone className="w-5 h-5" />,
+  achievement: <Cpu className="w-5 h-5" />,
 };
 
 export default function Experience() {
@@ -68,9 +71,9 @@ export default function Experience() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <p className="text-primary font-mono text-sm mb-3 tracking-widest uppercase">// where I&apos;ve been</p>
+          <p className="text-primary font-mono text-sm mb-3 tracking-widest uppercase">// professional history</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Experience &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Achievements</span>
+            Experience &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Roles</span>
           </h2>
           <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </motion.div>
@@ -92,14 +95,12 @@ export default function Experience() {
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Dot (mobile: left, desktop: center) */}
+                {/* Dash dot (mobile: left, desktop: center) */}
                 <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 z-10">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all ${
                     exp.type === "work"
                       ? "border-primary bg-bg-deep text-primary shadow-[0_0_20px_rgba(0,245,212,0.5)]"
-                      : exp.type === "education"
-                      ? "border-secondary bg-bg-deep text-secondary shadow-[0_0_20px_rgba(123,97,255,0.5)]"
-                      : "border-yellow-400 bg-bg-deep text-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.4)]"
+                      : "border-secondary bg-bg-deep text-secondary shadow-[0_0_20px_rgba(123,97,255,0.5)]"
                   }`}>
                     {iconMap[exp.type as keyof typeof iconMap]}
                   </div>
@@ -117,17 +118,17 @@ export default function Experience() {
                       {exp.period}
                     </div>
 
-                    <h3 className="text-lg font-bold text-white mb-1">{exp.title}</h3>
+                    <h3 className="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">{exp.title}</h3>
                     <div className="flex items-center gap-2 text-sm mb-4">
                       <span className="text-primary font-medium">{exp.company}</span>
-                      <span className="text-text-muted text-xs flex items-center gap-1">
-                        <MapPin className="w-3 h-3" />{exp.location}
+                      <span className="text-text-muted text-[10px] flex items-center gap-1">
+                        <MapPin className="w-2.5 h-2.5" />{exp.location}
                       </span>
                     </div>
 
                     <ul className="space-y-1.5 mb-5">
                       {exp.highlights.map((h, j) => (
-                        <li key={j} className="text-text-muted text-sm flex gap-2">
+                        <li key={j} className="text-text-muted text-xs leading-relaxed flex gap-2">
                           <span className="text-primary mt-1.5 shrink-0 w-1 h-1 rounded-full bg-primary" />
                           {h}
                         </li>
@@ -136,7 +137,7 @@ export default function Experience() {
 
                     <div className="flex flex-wrap gap-1.5">
                       {exp.tech.map((t, k) => (
-                        <span key={k} className="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/8 text-gray-400">
+                        <span key={k} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/8 text-gray-400">
                           {t}
                         </span>
                       ))}

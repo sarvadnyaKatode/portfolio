@@ -1,58 +1,92 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Database, BrainCircuit, Cloud, Wrench, ChevronRight } from "lucide-react";
+import { Database, BrainCircuit, Cloud, Wrench, ChevronRight, BarChart3 } from "lucide-react";
 
 const skillsData = [
   {
-    category: "Data Engineering",
+    category: "Programming",
+    icon: <Code2 className="w-7 h-7" />,
+    color: "primary",
+    items: [
+      { name: "Python (NumPy, Pandas, Scikit-learn)", level: 95 },
+      { name: "SQL (Complex Queries, Joins)", level: 90 },
+      { name: "R Programming", level: 75 },
+    ],
+    tags: ["Python", "SQL", "R", "C++"],
+    project: "Driver Drowsiness, Steam Analytics",
+  },
+  {
+    category: "Data Analytics & Tools",
+    icon: <BarChart3 className="w-7 h-7" />,
+    color: "secondary",
+    items: [
+      { name: "Statistics & Time-Series", level: 88 },
+      { name: "Power BI & MS Excel", level: 92 },
+      { name: "Data Storytelling", level: 90 },
+    ],
+    tags: ["Statistics", "Power BI", "Excel", "EDA"],
+    project: "Smart Demand Optimization",
+  },
+  {
+    category: "Big Data & Engineering",
     icon: <Database className="w-7 h-7" />,
     color: "primary",
     items: [
-      { name: "Apache Spark / PySpark", level: 90 },
-      { name: "SQL & Data Warehousing", level: 95 },
-      { name: "ETL Pipelines / Airflow", level: 85 },
+      { name: "Hadoop & Apache Spark", level: 85 },
+      { name: "PySpark & Hive", level: 88 },
+      { name: "Kafka & Airflow Pipelines", level: 80 },
     ],
-    tags: ["Spark", "PostgreSQL", "Airflow", "dbt"],
-    project: "AI Retail Intelligence Platform",
+    tags: ["Spark", "PySpark", "Hadoop", "Kafka"],
+    project: "Steam Gaming Platform, ETL Project",
   },
   {
-    category: "AI & Machine Learning",
+    category: "Machine Learning & AI",
     icon: <BrainCircuit className="w-7 h-7" />,
     color: "secondary",
     items: [
-      { name: "TensorFlow / PyTorch", level: 85 },
-      { name: "Prophet & Time-Series", level: 92 },
-      { name: "NLP & Transformers", level: 80 },
+      { name: "Regression, Classification, NLP", level: 90 },
+      { name: "Deep Learning (CNN-LSTM)", level: 85 },
+      { name: "Model Evaluation & Metrics", level: 92 },
     ],
-    tags: ["Scikit-learn", "Prophet", "HuggingFace", "OpenCV"],
-    project: "Driver Drowsiness, SteamSAGE",
+    tags: ["TensorFlow", "Keras", "NLP", "Computer Vision"],
+    project: "Driver Drowsiness detection",
   },
   {
     category: "Cloud & Infrastructure",
     icon: <Cloud className="w-7 h-7" />,
     color: "primary",
     items: [
-      { name: "AWS (S3, EC2, IAM)", level: 80 },
-      { name: "Docker & Containers", level: 78 },
-      { name: "Streamlit & FastAPI", level: 88 },
+      { name: "AWS (S3, EC2, Lambda, Glue)", level: 85 },
+      { name: "Git & Linux Bash", level: 88 },
+      { name: "Docker & CI/CD Basics", level: 75 },
     ],
-    tags: ["AWS", "Docker", "FastAPI", "Streamlit"],
-    project: "SteamSAGE, Retail Platform",
-  },
-  {
-    category: "Languages & Tools",
-    icon: <Wrench className="w-7 h-7" />,
-    color: "secondary",
-    items: [
-      { name: "Python", level: 96 },
-      { name: "TypeScript / React", level: 75 },
-      { name: "Linux / Git / Bash", level: 85 },
-    ],
-    tags: ["Python", "TypeScript", "Git", "Linux"],
-    project: "All Projects, Portfolio",
+    tags: ["AWS", "S3", "EC2", "Git", "Linux"],
+    project: "Cloud Analytics Platform",
   },
 ];
+
+// Helper to keep imports clean
+function Code2(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m18 16 4-4-4-4" />
+      <path d="m6 8-4 4 4 4" />
+      <path d="m14.5 4-5 16" />
+    </svg>
+  );
+}
 
 export default function Skills() {
   return (
@@ -80,7 +114,7 @@ export default function Skills() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {skillsData.map((group, i) => (
             <motion.div
               key={i}
@@ -108,7 +142,7 @@ export default function Skills() {
                 }`}>
                   {group.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white">{group.category}</h3>
+                <h3 className="text-xl font-bold text-white leading-tight">{group.category}</h3>
               </div>
 
               {/* Skill bars */}
@@ -116,8 +150,8 @@ export default function Skills() {
                 {group.items.map((item, j) => (
                   <div key={j}>
                     <div className="flex justify-between text-sm mb-1.5">
-                      <span className="text-gray-300 font-mono text-xs">{item.name}</span>
-                      <span className={`font-mono text-xs ${group.color === "primary" ? "text-primary" : "text-secondary"}`}>
+                      <span className="text-gray-300 font-mono text-[10px] md:text-xs">{item.name}</span>
+                      <span className={`font-mono text-[10px] ${group.color === "primary" ? "text-primary" : "text-secondary"}`}>
                         {item.level}%
                       </span>
                     </div>
@@ -144,7 +178,7 @@ export default function Skills() {
               <div className="mt-6 pt-5 border-t border-white/5 relative z-10">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {group.tags.map((tag, k) => (
-                    <span key={k} className={`text-xs font-mono px-2.5 py-1 rounded-md border ${
+                    <span key={k} className={`text-[10px] font-mono px-2 py-0.5 rounded-md border ${
                       group.color === "primary"
                         ? "border-primary/20 bg-primary/5 text-primary/80"
                         : "border-secondary/20 bg-secondary/5 text-secondary/80"
@@ -153,9 +187,9 @@ export default function Skills() {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-text-muted opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="flex items-center gap-1.5 text-[10px] text-text-muted opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <ChevronRight className="w-3 h-3 text-primary" />
-                  <span>Used in: <span className="text-white">{group.project}</span></span>
+                  <span>Key Project: <span className="text-white">{group.project}</span></span>
                 </div>
               </div>
             </motion.div>

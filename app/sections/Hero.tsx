@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Terminal, ChevronRight, ArrowDown, Zap } from "lucide-react";
 
-const roles = ["AI Engineer", "Data Enthusiast", "Problem Solver", "ML Architect"];
+const roles = ["Data Engineer", "AI Developer", "ML Architect", "Problem Solver"];
 
 const terminalLines = [
   { delay: 0.5, content: <><span className="text-primary">❯</span> <span className="text-secondary">import</span> <span className="text-white">Brain</span> <span className="text-secondary">from</span> <span className="text-primary">&apos;intelligence-framework&apos;</span></> },
-  { delay: 1.5, content: <><span className="text-primary">❯</span> <span className="text-secondary">const</span> <span className="text-white">engineer</span> = <span className="text-primary">new</span> <span className="text-[#00F5D4]">Brain</span>(<span className="text-yellow-300">&#123; role: &apos;AI Developer&apos; &#125;</span>)</> },
-  { delay: 2.5, content: <><span className="text-primary">❯</span> <span className="text-white">engineer</span>.<span className="text-[#00F5D4]">loadModels</span>(<span className="text-yellow-300">&apos;production&apos;</span>)</> },
+  { delay: 1.5, content: <><span className="text-primary">❯</span> <span className="text-secondary">const</span> <span className="text-white">engineer</span> = <span className="text-primary">new</span> <span className="text-[#00F5D4]">Brain</span>(<span className="text-yellow-300">&#123; role: &apos;Data &amp; AI Engineer&apos; &#125;</span>)</> },
+  { delay: 2.5, content: <><span className="text-primary">❯</span> <span className="text-white">engineer</span>.<span className="text-[#00F5D4]">activeModel</span> = <span className="text-yellow-300">&apos;Production&apos;</span></> },
   { delay: 3.5, content: null, isOutput: true },
-  { delay: 4.5, content: <><span className="text-primary">❯</span> <span className="text-secondary">// System ready. Awaiting input&hellip;</span></> },
+  { delay: 4.5, content: <><span className="text-primary">❯</span> <span className="text-secondary">// System ready. Building scalable AI systems.</span></> },
 ];
 
 export default function Hero() {
@@ -51,7 +51,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass border border-primary/30 text-primary text-sm font-mono"
         >
           <Zap className="w-3.5 h-3.5 animate-pulse" />
-          {greeting}, I&apos;m building the future with AI
+          {greeting}, I&apos;m building scalable AI systems
           <span className="relative flex h-2.5 w-2.5 ml-1">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary" />
@@ -105,8 +105,8 @@ export default function Hero() {
           transition={{ delay: 0.5 }}
           className="text-text-muted text-lg md:text-xl max-w-2xl leading-relaxed"
         >
-          Building scalable AI systems and real-world data solutions.
-          Turning complex challenges into elegant, predictive models and intelligent architectures.
+          AI Engineer | Data Enthusiast | Problem Solver.
+          Developing predictive models, data pipelines, and business-driven AI solutions.
         </motion.p>
 
         {/* CTAs */}
@@ -167,9 +167,9 @@ export default function Hero() {
                       transition={{ delay: line.delay }}
                       className="text-green-400 pl-4 border-l-2 border-green-500/30 space-y-0.5"
                     >
-                      <p>[✓] Initializing neural networks...</p>
-                      <p>[✓] Loading 1TB data lake...</p>
-                      <p>[✓] Model accuracy: <span className="text-primary">99.9%</span></p>
+                      <p>[✓] Initializing data cleaning...</p>
+                      <p>[✓] Performing EDA &amp; profiling...</p>
+                      <p>[✓] Optimizing Predictive Models...</p>
                     </motion.div>
                   ) : (
                     <motion.div
