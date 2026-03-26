@@ -1,34 +1,37 @@
+import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-fira-code" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sarvadnya-katode-portfolio.vercel.app"),
 
   title: {
     default:
-      "Sarvadnya Katode | Data Engineer | Spark | AWS | Big Data | Mumbai",
+      "Sarvadnya Katode | AI Engineer | Data Enthusiast",
     template: "%s | Sarvadnya Katode",
   },
 
   description:
-    "Sarvadnya Katode is a Data Engineer specializing in Apache Spark, AWS, ETL pipelines, and scalable data systems. CDAC DBDA graduate based in Mumbai.",
+    "Sarvadnya Katode is an AI Engineer and Data Enthusiast building scalable AI systems, predictive models, and real-world data solutions.",
 
   keywords: [
     "Sarvadnya Katode",
-    "Data Engineer Mumbai",
-    "Spark Developer",
-    "AWS Data Engineer",
-    "Big Data Engineer",
-    "CDAC DBDA Data Engineer",
-    "ETL Developer",
+    "AI Engineer",
+    "Data Enthusiast",
+    "Machine Learning",
+    "Data Scientist",
+    "Portfolio",
   ],
 
   authors: [{ name: "Sarvadnya Katode" }],
 
   openGraph: {
-    title: "Sarvadnya Katode | Data Engineer | Spark | AWS",
+    title: "Sarvadnya Katode | AI Engineer",
     description:
-      "Building scalable data systems using Spark, AWS, and cloud-native architecture.",
+      "Building scalable AI systems and data solutions.",
     url: "https://sarvadnya-katode-portfolio.vercel.app",
     siteName: "Sarvadnya Katode Portfolio",
     type: "website",
@@ -36,9 +39,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Sarvadnya Katode | Data Engineer",
+    title: "Sarvadnya Katode | AI Engineer",
     description:
-      "Data Engineer specializing in Spark, AWS, ETL pipelines, and scalable cloud-native systems.",
+      "AI Engineer building intelligent predictive modeling and scalable systems.",
   },
 };
 
@@ -48,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-black text-white">
+    <html lang="en" className="scroll-smooth dark">
+      <body className={`${inter.variable} ${firaCode.variable} font-sans antialiased selection:bg-secondary/30 selection:text-primary max-w-[100vw] overflow-x-hidden`}>
         {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
@@ -58,7 +61,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Sarvadnya Katode",
-              jobTitle: "Data Engineer",
+              jobTitle: "AI Engineer",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Mumbai",
