@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Database, BrainCircuit, Cloud, Wrench, ChevronRight, BarChart3 } from "lucide-react";
+import { Database, BrainCircuit, Cloud, ChevronRight, BarChart3, MessageSquare } from "lucide-react";
 
 const skillsData = [
   {
@@ -63,6 +63,18 @@ const skillsData = [
     ],
     tags: ["AWS", "S3", "EC2", "Git", "Linux"],
     project: "Cloud Analytics Platform",
+  },
+  {
+    category: "Communication",
+    icon: <MessageSquare className="w-7 h-7" />,
+    color: "secondary",
+    items: [
+      { name: "Technical Presentations", level: 90 },
+      { name: "Cross-functional Collaboration", level: 88 },
+      { name: "Report Writing & Documentation", level: 85 },
+    ],
+    tags: ["Presentations", "Teamwork", "Documentation", "Agile"],
+    project: "All Projects",
   },
 ];
 

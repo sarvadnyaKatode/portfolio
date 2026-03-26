@@ -17,15 +17,28 @@ const GithubIconLg = () => (
 
 const projects = [
   {
-    title: "Steam Gaming Analytics Platform",
-    emoji: "🎮",
-    impact: "Analyzes player sentiment & market trends for 239K games.",
-    problem: "Processing massive sets (1M+ reviews) required a scalable, cost-optimized cloud architecture.",
-    solution: "Built AWS S3 & Spark pipeline with Parquet optimization on Databricks/EMR for engagement KPIs.",
-    metric: "239K Games Analyzed",
-    tech: ["AWS S3", "Spark", "PySpark", "Databricks", "Power BI"],
-    github: "https://github.com/sarvadnyaKatode",
+    title: "AI Retail Supply Intelligence Platform",
+    emoji: "🛒",
+    impact: "Production-grade demand forecasting & inventory optimization across 100 SKUs (10 stores × 10 products).",
+    problem: "Hyperlocal retail lacked data-driven inventory forecasting, causing costly stockouts and overstock situations.",
+    solution: "Built time-series forecasting with Facebook Prophet (85–92% accuracy), a restock optimization engine, FastAPI backend with 8 REST APIs, and a Streamlit dashboard with geo-maps and smart alerts.",
+    metric: "85–92% Forecast Accuracy",
+    tech: ["Python", "FastAPI", "Streamlit", "Prophet", "Docker", "Plotly"],
+    github: "https://github.com/sarvadnyaKatode/AI-Retail-Supply-Intelligence-Platform",
+    demo: "https://ai-retail-supply-intelligence-platform.streamlit.app",
     color: "primary",
+  },
+  {
+    title: "SteamSAGE – Semantic Search & Analytics",
+    emoji: "🎮",
+    impact: "Cloud-based big data analytics & semantic search platform on 239K+ games and 1M+ reviews.",
+    problem: "Processing massive semi-structured datasets required a scalable cloud architecture with NLP-driven discovery.",
+    solution: "Built AWS S3 & Glue data pipeline, developed semantic search with Sentence Transformers, processed data with Apache Spark/PySpark, and built interactive Power BI dashboards for player sentiment and engagement insights.",
+    metric: "239K Games · 1M+ Reviews",
+    tech: ["AWS S3", "AWS Glue", "Apache Spark", "PySpark", "NLP", "Sentence Transformers", "Power BI"],
+    github: "https://github.com/sarvadnyaKatode/SteamSAGE",
+    demo: "https://steamsage.vercel.app/",
+    color: "secondary",
   },
   {
     title: "Driver Drowsiness Detection System",
@@ -36,17 +49,6 @@ const projects = [
     metric: "89% Accuracy",
     tech: ["Python", "TensorFlow", "Keras", "OpenCV", "Deep Learning"],
     github: "https://github.com/sarvadnyaKatode",
-    color: "secondary",
-  },
-  {
-    title: "Smart Demand Optimization System",
-    emoji: "🛒",
-    impact: "Reduced stockouts by 30% for hyperlocal stores.",
-    problem: "Hyperlocal retail lacks data-driven inventory forecasting, leading to excess or stockouts.",
-    solution: "Developed AI-powered demand forecasting using Python, SQL, and Apache Airflow pipelines.",
-    metric: "30% Reduction",
-    tech: ["Python", "SQL", "Airflow", "Power BI"],
-    github: "https://github.com/sarvadnyaKatode",
     color: "primary",
   },
   {
@@ -55,7 +57,7 @@ const projects = [
     impact: "Automated real-time weather data ingestion using Docker.",
     problem: "Manual data ingestion for Open-Meteo API was error-prone and non-scheduled.",
     solution: "Modular Python DAGs in Airflow to pull and process weather data automatically.",
-    metric: "Real-time pipeline",
+    metric: "Real-time Pipeline",
     tech: ["Apache Airflow", "Docker", "Python", "API"],
     github: "https://github.com/sarvadnyaKatode",
     color: "secondary",
@@ -155,6 +157,20 @@ export default function Projects() {
                     >
                       <GithubIcon /> Review Code
                     </a>
+                    {proj.demo && (
+                      <a
+                        href={proj.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex-1 flex items-center justify-center gap-2 text-sm font-medium py-2.5 rounded-xl border transition-all ${
+                          proj.color === "primary"
+                            ? "border-primary/30 bg-primary/5 text-primary hover:bg-primary/15 hover:border-primary/60"
+                            : "border-secondary/30 bg-secondary/5 text-secondary hover:bg-secondary/15 hover:border-secondary/60"
+                        }`}
+                      >
+                        <ExternalLink className="w-4 h-4" /> Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
