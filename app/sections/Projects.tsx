@@ -6,6 +6,35 @@ import FadeIn from "../components/FadeIn";
 export default function Projects() {
   const projects = [
     {
+      title: "AI Retail Supply Intelligence Platform 🛒",
+      description:
+        "A professional-grade AI solution designed to optimize demand forecasting and inventory management across retail networks, preventing stockouts and minimizing overstock.",
+      tech: [
+        "Python",
+        "FastAPI",
+        "Streamlit",
+        "Prophet",
+        "Scikit-learn",
+        "Docker",
+      ],
+      github: "https://github.com/sarvadnyaKatode",
+      highlights: [
+        "7-day demand forecasts for 100 SKUs with 85-92% accuracy",
+        "Inventory optimization engine with dynamic safety stock calculations",
+        "Interactive geospatial dashboard mapping restock urgency",
+        "Price optimization engine based on elasticity to maximize revenue",
+      ],
+      learnings: [
+        "Implementing a modular 3-layer architecture (Data, ML, Serving)",
+        "Quantifying business impact through 'Revenue at Risk' metrics",
+        "Processing 1M+ rows simulating complex retail trends and seasonality",
+      ],
+      future: [
+        "Live deployment on Streamlit Cloud for interactive demonstration",
+        "Integration with real-time enterprise POS data streams",
+      ],
+    },
+    {
       title: "SteamSAGE – Steam Semantic Search",
       description:
         "A deployed semantic search engine for Steam games that retrieves results based on meaning rather than keywords. Built using NLP embeddings and deployed for live inference.",
@@ -34,13 +63,6 @@ export default function Projects() {
         "Real-time ingestion & streaming analytics",
         "Game Success Predictor",
       ],
-    },
-    {
-      title: "Smart Demand Optimization System",
-      description:
-        "End-to-end ETL pipeline with SQL warehousing and Airflow orchestration. Built time-series forecasting system for retail stock optimization.",
-      tech: ["Python", "SQL", "Apache Airflow", "Forecasting"],
-      github: "https://github.com/sarvadnyaKatode",
     },
     {
       title: "Driver Drowsiness Detection",
