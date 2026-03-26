@@ -18,6 +18,7 @@ export default function Projects() {
         "Docker",
       ],
       github: "https://github.com/sarvadnyaKatode",
+      live: "https://ai-retail-supply-intelligence-platform.streamlit.app/",
       highlights: [
         "7-day demand forecasts for 100 SKUs with 85-92% accuracy",
         "Inventory optimization engine with dynamic safety stock calculations",
