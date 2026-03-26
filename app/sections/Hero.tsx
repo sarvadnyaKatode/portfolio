@@ -16,19 +16,19 @@ export default function Hero() {
   }, [roles.length]);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-bg-deep text-text-main px-6 overflow-hidden pt-20 pb-10">
+    <section className="relative min-h-[90vh] flex items-center justify-center bg-bg-deep text-text-main px-6 overflow-hidden pt-28 pb-16">
       {/* Background glow elements */}
       <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-5xl mx-auto w-full flex flex-col items-center relative z-10 space-y-16">
         
-        {/* Left Column: Text & CTAs */}
+        {/* Top: Text & CTAs */}
         <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="flex flex-col items-center text-center space-y-8"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/30 text-primary text-sm mb-4">
             <span className="relative flex h-3 w-3">
@@ -38,14 +38,14 @@ export default function Hero() {
             Available for new opportunities
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-            Hi, I'm <br />
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+            Hi, I'm <br className="md:hidden" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               Sarvadnya Katode
             </span>
           </h1>
 
-          <div className="h-12 overflow-hidden flex items-center text-xl md:text-3xl font-mono text-text-muted">
+          <div className="h-12 overflow-hidden flex items-center justify-center text-xl md:text-3xl font-mono text-text-muted">
             <ChevronRight className="w-6 h-6 text-primary mr-2 inline" />
             <motion.span
               key={currentRoleIndex}
@@ -63,7 +63,7 @@ export default function Hero() {
             />
           </div>
 
-          <p className="text-text-muted text-lg max-w-xl leading-relaxed">
+          <p className="text-text-muted text-lg md:text-xl max-w-2xl leading-relaxed">
             Building scalable AI systems and real-world data solutions. 
             Transforming complex challenges into elegant, predictive models and intelligent architectures.
           </p>
@@ -71,7 +71,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <a
               href="#projects"
-              className="px-8 py-3 bg-primary/10 text-primary border border-primary/50 rounded-lg font-medium hover:bg-primary hover:text-bg-deep transition-all duration-300 shadow-[0_0_15px_rgba(0,245,212,0.3)] hover:shadow-[0_0_30px_rgba(0,245,212,0.6)] flex items-center justify-center gap-2"
+              className="px-8 py-4 bg-primary/10 text-primary border border-primary/50 rounded-xl font-medium hover:bg-primary hover:text-bg-deep transition-all duration-300 shadow-[0_0_15px_rgba(0,245,212,0.3)] hover:shadow-[0_0_30px_rgba(0,245,212,0.6)] flex items-center justify-center gap-2"
             >
               View Projects
             </a>
@@ -79,22 +79,22 @@ export default function Hero() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 text-white border border-secondary/50 rounded-lg hover:border-secondary transition-all duration-300 hover:shadow-[0_0_20px_rgba(123,97,255,0.4)] glass flex items-center justify-center"
+              className="px-8 py-4 text-white border border-secondary/50 rounded-xl hover:border-secondary transition-all duration-300 hover:shadow-[0_0_20px_rgba(123,97,255,0.4)] glass flex items-center justify-center"
             >
               Download Resume
             </a>
           </div>
         </motion.div>
 
-        {/* Right Column: Terminal UI */}
+        {/* Bottom: Terminal UI */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative group hidden lg:block"
+          className="relative group w-full max-w-3xl"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-          <div className="relative rounded-2xl bg-[#0B0F19] border border-white/10 overflow-hidden shadow-2xl h-[420px] flex flex-col">
+          <div className="relative rounded-2xl bg-[#0B0F19] border border-white/10 overflow-hidden shadow-2xl h-[350px] flex flex-col text-left">
             <div className="flex items-center px-4 py-3 bg-white/5 border-b border-white/5">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
