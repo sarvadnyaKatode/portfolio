@@ -11,7 +11,7 @@ export default function About() {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ duration: 0.8 }}
-           className="mb-16"
+           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-mono tracking-tight text-white mb-4">
             <span className="text-primary">&lt;</span> About_Me <span className="text-primary">/&gt;</span>
@@ -52,7 +52,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="w-full"
           >
-            <div className="glass p-8 md:p-12 rounded-3xl">
+            <div className="glass p-8 md:p-12 rounded-3xl text-center">
               <p className="text-text-main text-lg md:text-xl leading-relaxed mb-6 font-medium">
                 I am an <span className="text-primary font-bold">AI Engineer</span> and <span className="text-secondary font-bold">Data Enthusiast</span> obsessed with turning raw data into intelligent, scalable systems. 
               </p>
