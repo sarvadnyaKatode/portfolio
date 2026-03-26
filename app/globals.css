@@ -19,6 +19,14 @@
   --color-text-muted: #9CA3AF;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -31,7 +39,7 @@ body {
   background: rgba(11, 15, 25, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @utility glass-card {
@@ -42,17 +50,83 @@ body {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
+/* Animated background grid */
+@utility bg-grid {
+  background-image: 
+    linear-gradient(rgba(0, 245, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 212, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glow text utilities */
+@utility text-glow-primary {
+  text-shadow: 0 0 20px rgba(0, 245, 212, 0.6);
+}
+
+@utility text-glow-secondary {
+  text-shadow: 0 0 20px rgba(123, 97, 255, 0.6);
+}
+
 /* Scrollbar Customization */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #0B0F19;
 }
 ::-webkit-scrollbar-thumb {
-  background: #7B61FF;
+  background: linear-gradient(180deg, #00F5D4, #7B61FF);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #00F5D4;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 245, 212, 0.3);
+  color: #E6EAF2;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 245, 212, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(0, 245, 212, 0.7), 0 0 60px rgba(0, 245, 212, 0.3); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Cursor glow effect */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 245, 212, 0.06) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.1s ease;
 }

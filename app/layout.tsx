@@ -1,79 +1,39 @@
+import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
-import type { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-fira-code" });
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sarvadnya-katode-portfolio.vercel.app"),
-
-  title: {
-    default:
-      "Sarvadnya Katode | AI Engineer | Data Enthusiast",
-    template: "%s | Sarvadnya Katode",
-  },
-
+  title: "Sarvadnya Katode | AI Engineer & Data Enthusiast",
   description:
-    "Sarvadnya Katode is an AI Engineer and Data Enthusiast building scalable AI systems, predictive models, and real-world data solutions.",
-
-  keywords: [
-    "Sarvadnya Katode",
-    "AI Engineer",
-    "Data Enthusiast",
-    "Machine Learning",
-    "Data Scientist",
-    "Portfolio",
-  ],
-
-  authors: [{ name: "Sarvadnya Katode" }],
-
+    "Portfolio of Sarvadnya Katode — AI Engineer, Data Enthusiast, and ML Architect based in Mumbai. Building production-grade data pipelines, machine learning models, and intelligent systems.",
+  keywords: ["AI Engineer", "Data Engineer", "Machine Learning", "Portfolio", "Python", "Next.js"],
   openGraph: {
     title: "Sarvadnya Katode | AI Engineer",
-    description:
-      "Building scalable AI systems and data solutions.",
-    url: "https://sarvadnya-katode-portfolio.vercel.app",
-    siteName: "Sarvadnya Katode Portfolio",
+    description: "Building scalable AI systems and real-world data solutions.",
     type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Sarvadnya Katode | AI Engineer",
-    description:
-      "AI Engineer building intelligent predictive modeling and scalable systems.",
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
-      <body className={`${inter.variable} ${firaCode.variable} font-sans antialiased selection:bg-secondary/30 selection:text-primary max-w-[100vw] overflow-x-hidden`}>
-        {/* Structured Data for SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Sarvadnya Katode",
-              jobTitle: "AI Engineer",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Mumbai",
-                addressCountry: "India",
-              },
-              sameAs: [
-                "https://www.linkedin.com/in/sarvadnya-katode/",
-                "https://github.com/sarvadnyaKatode/",
-              ],
-            }),
-          }}
-        />
+    <html lang="en" className="dark scroll-smooth">
+      <body className={`${inter.variable} ${firaCode.variable} font-sans antialiased bg-bg-deep text-text-main`}>
         {children}
       </body>
     </html>

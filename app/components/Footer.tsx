@@ -1,58 +1,26 @@
 export default function Footer() {
   return (
-    <footer className="bg-neutral-950 text-white border-t border-neutral-900 py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-semibold tracking-tight">
-              Sarvadnya Katode
-            </h3>
-            <p className="text-gray-400 mt-3 max-w-md text-sm">
-              Hybrid Data & Cloud Engineer focused on scalable data systems,
-              distributed architecture, and production-ready AI infrastructure.
-            </p>
-          </div>
-
-          <div className="flex gap-8 text-sm text-gray-400">
-            <a
-              href="mailto:sarvadnyakatode@gmail.com"
-              className="hover:text-white transition"
-            >
-              Email
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/sarvadnya-katode/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href="https://github.com/sarvadnyaKatode"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition"
-            >
-              GitHub
-            </a>
-          </div>
-
+    <footer className="relative border-t border-white/5 py-12 px-6 overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-10" />
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+        
+        <div>
+          <span className="text-xl font-bold font-mono text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            Sarvadnya Katode
+          </span>
+          <p className="text-text-muted text-sm mt-1">AI Engineer & Data Enthusiast — Mumbai, India</p>
+        </div>
+        
+        <div className="flex gap-6 text-sm text-text-muted">
+          <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Resume</a>
         </div>
 
-        {/* Divider */}
-        <div className="mt-16 border-t border-neutral-900"></div>
-
-        {/* Bottom Section */}
-        <div className="mt-8 text-center text-xs text-gray-500">
-          © {new Date().getFullYear()} Sarvadnya Katode. Built with Next.js & deployed on Vercel.
-        </div>
-
+        <p className="text-xs text-text-muted opacity-50">
+          &copy; {new Date().getFullYear()} Built with Next.js &amp; Vercel
+        </p>
       </div>
     </footer>
   );
